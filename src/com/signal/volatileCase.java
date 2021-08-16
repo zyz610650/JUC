@@ -11,7 +11,7 @@ public class volatileCase {
     private static  int signal=0;
 
     static class ThreadA implements Runnable{
-
+// https://blog.csdn.net/qq_39552268/article/details/119725273 出现这种问题的原因
         @Override
         public void run() {
             while (signal<10)
@@ -19,11 +19,11 @@ public class volatileCase {
                 if (signal%2==0)
                 {
                     System.out.println("threadA: "+signal);
-                   synchronized (this)
-                   {
-                       signal++;
-                   }
-               //     signal++;
+//                   synchronized (this)
+//                   {
+//                       signal++;
+//                   }
+                signal++;
                 }
             }
         }
@@ -38,11 +38,11 @@ public class volatileCase {
                 if (signal%2==1)
                 {
                     System.out.println("threadB: "+signal);
-                //    signal++;
-                    synchronized (this)
-                    {
-                        signal++;
-                    }
+                 signal++;
+//                    synchronized (this)
+//                    {
+//                        signal++;
+//                    }
 
                 }
             }
@@ -51,7 +51,7 @@ public class volatileCase {
 
     public static void main(String[] args) throws InterruptedException {
         new Thread(new ThreadA()).start();
-        Thread.sleep(10);
+       Thread.sleep(10);
         new Thread(new ThreadB()).start();
     }
 }
