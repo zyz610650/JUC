@@ -7,33 +7,20 @@ package com.communication;
  * @address:
  * @idea:
  */
-public class ThreadLocalDemo {
-    static class User{
-        public User(int num) {
-            this.num = num;
-        }
+public class ThreadLocalDemo2 {
 
-        int num;
+    static ThreadLocal<Integer> threadLocal=new ThreadLocal<>();
 
-        @Override
-        public String toString() {
-
-            return    Thread.currentThread().getName()+" User{" +
-                    "num=" + num +
-                    '}';
-        }
-    }
     static class ThreadA implements Runnable{
-        private ThreadLocal<User> threadLocal;
+        private ThreadLocal<Integer> threadLocal;
 
-        public ThreadA(ThreadLocal<User> threadLocal) {
+        public ThreadA(ThreadLocal<Integer> threadLocal) {
             this.threadLocal = threadLocal;
         }
 
         @Override
         public void run() {
-            User user=new User(1);
-            threadLocal.set(user);
+
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -44,9 +31,9 @@ public class ThreadLocalDemo {
     }
     static class ThreadB implements Runnable
     {
-        private ThreadLocal<User> threadLocal;
+        private ThreadLocal<Integer> threadLocal;
 
-        public ThreadB(ThreadLocal<User> threadLocal) {
+        public ThreadB(ThreadLocal<Integer> threadLocal) {
             this.threadLocal = threadLocal;
         }
 
@@ -66,9 +53,7 @@ public class ThreadLocalDemo {
 
 
     public static void main(String[] args) {
-        ThreadLocal<User> threadLocal=new ThreadLocal<>();
-        User user=new User(0);
-        threadLocal.set(user);
+        threadLocal.set(2);
 
         new Thread(new ThreadA(threadLocal)).start();
         new Thread(new ThreadB(threadLocal)).start();
