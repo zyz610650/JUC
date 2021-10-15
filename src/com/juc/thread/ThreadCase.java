@@ -10,6 +10,7 @@ package com.juc.thread;
 public class ThreadCase {
 
     public static class MyThread extends java.lang.Thread{
+
         @Override
         public void run()
         {
