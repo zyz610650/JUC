@@ -1,6 +1,4 @@
-package com.juc.Concurrent;
-
-import com.juc.Interrupt.test1;
+package com.juc.conncurrent;
 
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
