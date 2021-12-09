@@ -1,10 +1,9 @@
-package com.juc.threadpool;
+package com.juc.threadpool.custom;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -148,7 +147,7 @@ public class BlockingQueue<T> {
 	}
 
 
-	public void tryPut(RejectPolicy<T> rejectPolicy,T task)
+	public void tryPut(RejectPolicy <T> rejectPolicy, T task)
 	{
 		lock.lock ();
 		try {

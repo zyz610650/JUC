@@ -32,7 +32,11 @@
             <version>1.23</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.8</version>
+        </dependency>
     </dependencies>
   <build>
       <plugins>

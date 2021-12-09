@@ -1,5 +1,7 @@
-package com.juc.threadpool;
+package com.juc.threadpool.custom;
 
+import com.juc.threadpool.custom.BlockingQueue;
+import com.juc.threadpool.custom.RejectPolicy;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashSet;
@@ -14,14 +16,14 @@ public class ThreadPool {
 	/**
 	 * 任务队列
 	 */
-	private BlockingQueue<Runnable> taskQueue;
+	private BlockingQueue <Runnable> taskQueue;
 
 	/**
 	 * 线程集合
 	 */
 	private HashSet < Worker > workers=new HashSet < Worker > ();
 
-	private RejectPolicy<Runnable> rejectPolicyRejectPolicy;
+	private RejectPolicy <Runnable> rejectPolicyRejectPolicy;
 
 	/**
 	 * 核心线程数

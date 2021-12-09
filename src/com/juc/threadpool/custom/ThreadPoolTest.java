@@ -1,5 +1,6 @@
-package com.juc.threadpool;
+package com.juc.threadpool.custom;
 
+import com.juc.threadpool.custom.ThreadPool;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.TimeUnit;
