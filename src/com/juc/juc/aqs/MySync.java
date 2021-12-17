@@ -1,6 +1,10 @@
 package com.juc.juc.aqs;
 
+import java.util.concurrent.Future;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 /**
  * @author: @zyz
@@ -25,6 +29,7 @@ public class MySync extends AbstractQueuedSynchronizer {
 
 	@Override
 	protected boolean tryRelease (int arg) {
+
 		if (arg==1)
 		{
 			if (getState ()==0)
