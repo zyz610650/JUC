@@ -33,14 +33,14 @@ public class ReferenceTest6 {
 			poll = queue.poll();
 		}
 		System.out.println ("等待GC");
-	Thread.sleep (2000);
+		Thread.sleep (2000);
 
 			poll = queue.poll();
 			while( poll != null) {
 				System.out.println ("回收");
 			poll = queue.poll();
 			}
-		ByteBuffer
+
 
 	}
 
